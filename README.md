@@ -12,5 +12,7 @@
     pip install git+https://github.com/django-crispy-forms/crispy-bootstrap4.git
 
 ## Running the Server
+    cd mysite (change directory to mysite folder)
+    python manage,py migrate
     python manage.py runserver
 

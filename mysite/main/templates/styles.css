@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+.login-button {
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+.login-form {
+    display: flex;
+    justify-content: center;
+}

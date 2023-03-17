@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from register import views as v
 from login import views 
+from landing_page import views as landing_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path("register/", v.register, name="register"),
     path("login/", views.login_view, name="register"),
     path('logout/', views.logout_view, name='logout'),
+    path('landing/', landing_view.landing_page, name='landing'),
 ]

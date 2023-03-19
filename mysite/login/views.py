@@ -5,14 +5,14 @@ from django.shortcuts import redirect
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             return redirect('home')
         else:
-            error_message = "Invalid username or password"
+            error_message = "Invalid email or password"
             return render(request, 'login.html', {'error_message': error_message})
     else:
         return render(request, 'login.html')

@@ -1,11 +1,11 @@
 from django import forms
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from .models import CustomUser
 
 class registerForm(UserCreationForm):
     email = forms.EmailField()
-
+    role = forms.ChoiceField(choices=CustomUser.ROLE_CHOICES)
+    
     class Meta:
-        model = User
-        fields = ["email", "password1", "password2"]
+        model = CustomUser
+        fields = ('role','email', 'password1', 'password2')

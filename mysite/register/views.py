@@ -10,8 +10,8 @@ def register(response):
         form = registerForm(response.POST)
         if form.is_valid():
             form.save()
-            user = form.cleaned_data.get('email')
-            messages.success(request, 'Account was created for'+ user)
+            username = form.cleaned_data.get('username')
+            messages.success(response, f'Account created for {username}!')
 
     else:
         form = registerForm()

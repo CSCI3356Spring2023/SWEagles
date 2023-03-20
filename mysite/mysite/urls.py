@@ -19,6 +19,7 @@ from register import views as register_view
 from login import views as login_view
 from landing_page import views as landing_view
 from course import views as course_views
+from home_page import views as home_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('logout/', login_view.logout_view, name='logout'),
     path('landing/', landing_view.landing_page, name='landing'),
     path('course_creation/', course_views.course_creation, name='course_creation'),
+    path('home/', home_views.home_view, name='home'),
+    
 ]

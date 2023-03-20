@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from .models import AddCourse
-
 # Create your views here.
 
 def course_creation(request):
@@ -9,4 +7,4 @@ def course_creation(request):
         pass
     else:
         # render the course creation form template
-        return render(request, 'course_creations.html')
+        return render(request, 'course_creation.html')

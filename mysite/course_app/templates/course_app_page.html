@@ -5,6 +5,7 @@
 
 <html>
 <style>
+  p { font-size: 15px; }
   body {
       display: flex;
       align-items: center;
@@ -18,8 +19,9 @@
       content: center;
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      text-align: center;
+      text-align: left;
       padding-top: 50px;
+      padding-left: 75px;
   }
 </style>
 
@@ -27,8 +29,21 @@
 <body>
 
 <div class="main-container">
-      <h1>Boston College </h1>
+      <h1>BOSTON COLLEGE</h1>
       <h2>Applying for a Course</h2>
+      <div style="padding: 20px;">
+      </div>
+      <div>
+          <h2>Computer Science 1</h2>
+          <h2>CSCI 1101.01</h2>
+          <p>This course is an introduction to the art and science of computer programming and to some of the fundamental concepts of computer science. Students will write programs in the Python programming language.
+TA Requirements: Python, OOP programming, 2 hrs/wk Office hours, 3 hrs/wk Grading</p>
+          <form method="POST" class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+          </form>
+      </div>
 </div>
 </body>
 </html>

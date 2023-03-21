@@ -31,7 +31,7 @@ urlpatterns = [
     path('landing/', landing_views.landing_page, name='landing'),
     path('course_creation/', course_views.add_course_view, name='course_creation'),
     path('home/', home_views.home_view, name='home'),
-    path('course_app/', course_app_views.course_app_page, name='course_app'),
+    path('course_app/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
 
 ]

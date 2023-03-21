@@ -25,11 +25,12 @@ from show_courses import views as show_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("main.urls")),
+    #path("", include("main.urls")),
+    path('', landing_views.landing_page, name='landing'),
+    path('landing/', landing_views.landing_page, name='landing'),
     path("register/", register_view.register, name="register"),
     path("login/", login_view.login_view, name="register"),
     path('logout/', login_view.logout_view, name='logout'),
-    path('landing/', landing_views.landing_page, name='landing'),
     path('course_creation/', course_views.add_course_view, name='course_creation'),
     path('home/', home_views.home_view, name='home'),
     path('course_app/', course_app_views.course_app_view, name='course_app'),

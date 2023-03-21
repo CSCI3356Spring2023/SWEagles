@@ -20,5 +20,6 @@ def register(response):
             messages.success(response, f'Account created for {username}!')
 
     else:
-        form = registerForm()
+        #form = registerForm()
+        form = UserCreationForm()
     return render(response, "register/register.html", {"form": form})

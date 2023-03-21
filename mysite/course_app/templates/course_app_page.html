@@ -1,1 +1,35 @@
-<h1>Courseapp<\h1>
+{% extends "main/base.html" %}
+{% block title %}Boston College{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<html>
+<style>
+  body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  .main-container{
+      font-family: Times New Roman;
+      background-color:#800000;
+      color: white;
+
+      content: center;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      text-align: center;
+      padding-top: 50px;
+  }
+</style>
+
+
+<body>
+
+<div class="main-container">
+      <h1>Boston College </h1>
+      <h2>Applying for a Course</h2>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -13,6 +13,6 @@
 
 ## Running the Server
     cd mysite (change directory to mysite folder)
-    python manage,py migrate
+    python manage.py migrate
     python manage.py runserver
 

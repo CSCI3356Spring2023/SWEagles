@@ -1,0 +1,20 @@
+
+{% block content %}
+    <h1>Course List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Course Title</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in course_data %}
+                <tr>
+                    <td>{{ AddCourse.Course_Name }}</td>
+                    <td>{{ AddCourse.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

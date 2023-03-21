@@ -6,6 +6,15 @@
 <html>
 
 <style>
+	.boston-college {
+			background-color: #98002e;
+			color: #ffffff;
+			font-family: "Merriweather", serif;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+		}
+
   .main-container{
       font-family: Times New Roman; 
       background-color:#800000;
@@ -16,6 +25,7 @@
       text-align: center;
       padding-top: 50px;
   }
+
   .login-button {
       font-family: Times New Roman; 
       background-color: #BC9B6A; 
@@ -31,7 +41,28 @@
       border-radius: 5px;
       border: 2px solid #fff;
       text-align: center;
+	  
+
   }
+  
+	form p {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 50px;
+		align-items: center;
+
+	}
+
+	form label {
+		margin-bottom: 5px;
+	}
+
+	form input[type="text"], form input[type="email"], form input[type="password"] {
+		padding: 5px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		width: 20%;
+	}
 
 </style >
   <head>
@@ -40,9 +71,8 @@
   <body>
     
     <div class="main-container">
-      <h1>BOSTON COLLEGE</h1>
-      <h2>TA System</h2>
-    <h1>Create a Course</h1>
+      <h1 class="boston-college">BOSTON COLLEGE <br>TA System</h1>
+    <h2>Create a Course</h2>
     <form method="POST">{% csrf_token %}
 	  {{ form.as_p }}
 
@@ -58,7 +88,7 @@
       <label for="end_date">Discussion Date:</label>
       <input type="date" id="end_date" name="end_date">
       <br><br> -->
-      <input type='submit', value='Save'/>
+      <input class="login-button" type='submit', value='Save'/>
     </form>
   </div>
   </body>

@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import AddCourseForm
 # Create your views here.
 
-def course_creation(request):
-    if request.method == 'POST':
-        # logic for saving course creation form data to database
-        pass
-    else:
-        # render the course creation form template
-        return render(request, 'course_creation.html')
+def add_course_view(request):
+    form = AddCourseForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = AddCourseForm()
+
+    return render(request, 'course_creation.html', {'form': form})    
+
+  

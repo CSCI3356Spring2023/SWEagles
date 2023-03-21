@@ -29,7 +29,7 @@ urlpatterns = [
     path("login/", login_view.login_view, name="register"),
     path('logout/', login_view.logout_view, name='logout'),
     path('landing/', landing_view.landing_page, name='landing'),
-    path('course_creation/', course_views.course_creation, name='course_creation'),
+    path('course_creation/', course_views.add_course_view, name='course_creation'),
     path('home/', home_views.home_view, name='home'),
     path('course_app/', course_app_views.course_app_page, name='course_app')
 

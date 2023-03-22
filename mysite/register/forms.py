@@ -6,7 +6,7 @@ class CustomUserCreationForm(UserCreationForm):
     ROLE_CHOICES = (
         ('student', 'Student'),
         ('instructor', 'Instructor'),
-        ('professor', 'Professor')
+        ('admin', 'Admin')
     )
 
     role = forms.ChoiceField(choices=ROLE_CHOICES)

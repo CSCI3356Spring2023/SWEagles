@@ -11,10 +11,8 @@ from course.models import AddCourseModel
 
 def added_courses(request):
     course_list = AddCourseModel.objects.all()
-
     context = {
         'course_list' : course_list
     }
-
     return render(request, 'show_courses.html', context)
 # Create your views here.

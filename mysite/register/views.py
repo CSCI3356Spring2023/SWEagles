@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django.contrib import messages
 
-# importing basic user form
-from django.contrib.auth.forms import UserCreationForm
-
 # Create your views here.
 
 def register(response):

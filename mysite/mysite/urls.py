@@ -22,7 +22,7 @@ from course import views as course_views
 from home_page import views as home_views
 from course_app import views as course_app_views
 from show_courses import views as show_views
-
+from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     #path("", include("main.urls")),
@@ -36,4 +36,5 @@ urlpatterns = [
     path('course_app/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
     path('show/', show_views.added_courses, name='show_courses'),
+    path('welcome/<str:custom_attribute>/', views.welcome_view, name='welcome'),
 ]

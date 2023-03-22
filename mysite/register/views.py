@@ -16,6 +16,7 @@ def register(response):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(response, f'Account created for {username}!')
+            return redirect ('landing')
 
     else:
         #form = registerForm()

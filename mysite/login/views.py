@@ -14,7 +14,10 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.info(request, f"You are now logged in as {username}")
-            return redirect('landing')
+            messages.info(request, f"You are {user.role}")
+            user_info = request.user
+            context = {'custom_attribute': {user.role}, 'username': username}
+            return render(request, 'welcome.html', context)
         else:
             error_message = "Invalid email or password"
             return render(request, 'login.html', {'error_message': error_message})

@@ -10,7 +10,6 @@ class AddCourseModel(models.Model):
     Lecture_Times= models.CharField(max_length=100, blank=True)
     Discussion_Times = models.CharField(max_length=100, blank=True)
     Course_Description = models.TextField(blank=True)
-    Instructor = models.ForeignKey('auth.User', on_delete=models.CASCADE, default=False)
     Office_Hours_per_week = models.PositiveIntegerField(blank=True, null=True)
 
 

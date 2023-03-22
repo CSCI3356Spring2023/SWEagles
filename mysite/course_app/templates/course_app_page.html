@@ -23,13 +23,29 @@
       padding-top: 50px;
       padding-left: 75px;
       padding-right: 250px;
+      padding-bottom: 20px;
+  }
+  .apply-button {
+      font-family: Times New Roman;
+      background-color: #BC9B6A;
+      border: black;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 2px solid #fff;
+      text-align: center;
   }
 
 </style>
 
 
 <body>
-
 <div class="main-container">
       <h1>BOSTON COLLEGE</h1>
       <h2>Applying for a Course</h2>
@@ -41,11 +57,17 @@
           <p>This course is an introduction to the art and science of computer programming and to some of the fundamental concepts of computer science. Students will write programs in the Python programming language.
 TA Requirements: Python, OOP programming, 2 hrs/wk Office hours, 3 hrs/wk Grading</p>
           <form method="POST" class="form-group">
+            {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Submit</button>
+            <div class="apply-button">
+              <button type="submit">Apply</button>
+            <div>
           </form>
+
       </div>
+
 </div>
+
 </body>
 </html>
 {% endblock %}

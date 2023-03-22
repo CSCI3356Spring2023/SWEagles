@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
     ROLE_CHOICES = (
@@ -12,7 +12,7 @@ class CustomUserCreationForm(UserCreationForm):
     role = forms.ChoiceField(choices=ROLE_CHOICES)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('username', 'email', 'password1', 'password2', 'role')
         
     def clean(self):

@@ -13,17 +13,19 @@
         text-align: center;
         padding-top: 50px;
     }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
       
   
   </style >
   <div class="main-container">
     <h1>Boston College </h1>
     <h2>TA System </h2>
-    <h3>Course List</h3>
-    <table> {
-        border: 1px solid white;
-        border-collapse: collapse;
-      }
+</div>
+    <h1>Course List</h1>
+    <table>
         <thead>
             <tr>
                 <th>Course Title</th>
@@ -53,6 +55,5 @@
             {% endfor %}
         </tbody>
     </table>
-</div>
 {% endblock %}
 

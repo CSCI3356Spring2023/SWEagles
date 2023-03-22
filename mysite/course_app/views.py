@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
 from .forms import courseForm
+from django.http import HttpResponse
 
-def course_app_view(request):
-    if request.method == 'POST':
-        form = courseForm(request.POST)
+def course_app_view(response):
+    form = courseForm()
+    if response.POST:
+        form = courseForm(response.POST, response.FILES)
+        print(response.FILES)
         if form.is_valid():
             form.save()
-            return redirect('my_view_success')
+            return HttpResponse("Got it!")
     else:
         form = courseForm()
-    return render(request, 'course_app_page.html', {'form': form})
+        
+    return render(response, 'course_app_page.html', {'form': form})

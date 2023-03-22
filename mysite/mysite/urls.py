@@ -35,5 +35,5 @@ urlpatterns = [
     path('home/', home_views.home_view, name='home'),
     path('course_app/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
-    path('show/', show_views.added_courses, name='show_courses'),
+    path('view_courses/', show_views.added_courses, name='view_courses'),
 ]

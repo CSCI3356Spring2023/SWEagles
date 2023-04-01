@@ -9,6 +9,7 @@ from course.models import AddCourseModel
 
 # Create your views here.
 
+##show_courses will show course, course ID, and 2 buttons: view apps + edit courses
 def added_courses(request):
     course_list = AddCourseModel.objects.all()
     context = {
@@ -16,3 +17,13 @@ def added_courses(request):
     }
     return render(request, 'show_courses.html', context)
 # Create your views here.
+
+#this view below has been added such that students see the apply button
+##instead of the edit courses/ view applications buttons
+
+def student_view(request):
+    course_list = AddCourseModel.objects.all()
+    context = {
+        'course_list' : course_list
+    }
+    return render(request, 'show_courses_student_view.html', context)

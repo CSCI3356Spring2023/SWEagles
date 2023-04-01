@@ -36,6 +36,7 @@ urlpatterns = [
     path('course_app/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
     path('view_courses/', show_views.added_courses, name='view_courses'),
+    path('view_courses_student/', show_views.student_view, name='view_courses_student'),
     path('welcome/<str:custom_attribute>/', views.welcome_view, name='welcome'),
     path('student_dashboard/<str:custom_attribute>/', views.student_view, name='student'),
     path('instructor_dashboard/<str:custom_attribute>/', views.instructor_view, name='instructor'),

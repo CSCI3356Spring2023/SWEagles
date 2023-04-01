@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <style>
+
+    .banner {
+      height: 15vh;
+      width: 100%;
+      font-family: Times New Roman; 
+      background-color: #800000;
+      margin: 0 auto;
+      color: white;
+      font-size: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 2vh;
+    }
+    .sub-banner {
+      font-size: 10px;
+  }
+  .buttons {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-button {
+  font-family: Times New Roman; 
+  background-color: #BC9B6A; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  text-align: center;
+}
+
+  </style>
+<head>
+    <title>Welcome</title>
+</head>
+<div class="banner">
+  <h1>BOSTON COLLEGE</h1>
+  <div lass="sub-banner">
+      <h2>TA System</h2>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+      // Get the current URL using JavaScript
+      var currentUrl = window.location.href;
+
+      // Send the current URL to the server using Ajax
+      $.ajax({
+          type: 'POST',
+          url: '/current_url',
+          data: { url: currentUrl },
+          success: function(response) {
+              console.log('Server response:', response);
+          }
+      });
+  });
+</script>
+<body>
+    <h1> INSTRUCTOR DASHBOARD </h1>
+    <h1>Welcome, {{ username }}</h1>
+    <p>You are now logged in as {{ custom_attribute }} ! </p>
+    <div class="buttons">
+	    <a href="{{ currentUrl}}/course_creation"><button class="login-button">Create a Course</button></a>
+    </div>
+    <div class="buttons">
+	    <a href="{{ currentUrl}}/view_courses"><button class="login-button">View Courses</button></a>
+    </div>
+</body>
+
+</html>

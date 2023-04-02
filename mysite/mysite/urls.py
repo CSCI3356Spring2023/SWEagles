@@ -23,6 +23,10 @@ from home_page import views as home_views
 from course_app import views as course_app_views
 from show_courses import views as show_views
 from . import views
+
+admin.site.site_header = 'Boston College TA Application'
+admin.site.index_title = 'Admin Information'
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     #path("", include("main.urls")),

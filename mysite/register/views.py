@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from mysite.utils import send_email
 from .forms import CustomUserCreationForm
 from django.contrib import messages
 
@@ -16,6 +18,9 @@ def register(response):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(response, f'Account created for {username}!')
+            message = "Your account with the TA System has been successuly created."
+            subject = "Boston College TA System"
+            send_email(form.cleaned_data.get('email'), subject, message)
             return redirect ('landing')
 
     else:

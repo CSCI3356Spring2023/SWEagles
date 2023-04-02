@@ -109,30 +109,38 @@ th:nth-child(4), td:nth-child(4) {
         <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
-                    <th>Course Title</th>
+                    <th>Instructor ID</th>
+                    <th>Course Name </th>
                     <th>Course ID</th>
                     <th>Section</th>
                     <th>Marking Meetings</th>
+                    <th>Lecture Days</th>
                     <th>Lecture Times</th>
+                    <th>Discussion Days</th>
                     <th>Discussion Times</th>
                     <th>Description</th>
                     <th>Instructor</th>
                     <th>Office Hours Per Week</th>
+                    <th>TA positions</th>
                     <th>Apply</th>
                 </tr>
             </thead>
             <tbody>
                 {% for course in course_list %}
                     <tr>
+                        <td>{{ course.Instructor_ID }}</td>
                         <td>{{ course.Course_Name }}</td>
                         <td>{{ course.Course_ID }}</td>
                         <td>{{ course.Section }}</td>
                         <td>{{ course.Marking_Meetings }}</td>
-                        <td>{{ course.Lecture_Times }}</td>
+                        <td>{{ course.Lecture_Days }}</td>
+                        <td>{{ course.Lecture_Times}}</td>
+                        <td>{{ course.Discussion_Days }}</td>
                         <td>{{ course.Discussion_Times }}</td>
                         <td>{{ course.Course_Description }}</td>
                         <td>{{ course.Instructor }}</td>
                         <td>{{ course.Office_Hours_per_week }}</td>
+                        <td>{{ course.TA_Positions}}</td>
                         <td><a href="{{ currentUrl}}/course_app"><button class="login-button">Apply</button></a></td>
                     </tr>
                 {% endfor %}
@@ -142,4 +150,3 @@ th:nth-child(4), td:nth-child(4) {
 </div>
 </body>
 {% endblock %}
-

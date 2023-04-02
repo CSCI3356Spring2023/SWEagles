@@ -11,6 +11,7 @@ class AddCourseModel(models.Model):
     Discussion_Times = models.CharField(max_length=100, blank=True)
     Course_Description = models.TextField(blank=True)
     Office_Hours_per_week = models.PositiveIntegerField(blank=True, null=True)
+    TA_Positions = models.PositiveIntegerField(blank=True, null=True)
 
 
 

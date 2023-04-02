@@ -100,6 +100,7 @@
                     <th>Description</th>
                     <th>Instructor</th>
                     <th>Office Hours Per Week</th>-->
+                    <th>TA Positions</th>
                     <th>View Applicants</th>
                     <th>Edit Course</th>
                 </tr>
@@ -116,6 +117,7 @@
                         <td>{{ course.Course_Description }}</td>
                         <td>{{ course.Instructor }}</td>
                         <td>{{ course.Office_Hours_per_week }}</td>-->
+                        <td>{{ course.TA_Positions }}</td>
                         <td><form method="POST" class="form-group">
                             {% csrf_token %}
                             {{ form|crispy }}

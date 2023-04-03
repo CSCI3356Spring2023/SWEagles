@@ -8,8 +8,6 @@ DAYS_OF_WEEK = (
         ('wed', 'Wednesday'),
         ('thu', 'Thursday'),
         ('fri', 'Friday'),
-        ('sat', 'Saturday'),
-        ('sun', 'Sunday'),
     )
 class AddCourseModel(models.Model):
     Instructor_ID = models.CharField(max_length=10, blank=True)
@@ -17,10 +15,10 @@ class AddCourseModel(models.Model):
     Course_ID = models.CharField(max_length=100, blank=True)
     Section = models.CharField(max_length=10, blank=True)
     Marking_Meetings = models.BooleanField(max_length=10, blank=True)
-    Lecture_Days = MultiSelectField(choices=DAYS_OF_WEEK, max_choices=3, max_length=3, blank= True)
-    Lecture_Times= models.TimeField(auto_now=False, auto_now_add=False)
-    Discussion_Days = MultiSelectField(choices=DAYS_OF_WEEK, max_choices=3, max_length=3, blank= True)
-    Discussion_Times = models.DurationField(max_length=100, blank=True)
+    Lecture_Days = MultiSelectField(choices=DAYS_OF_WEEK, max_choices=5, max_length=100, blank= True)
+    Lecture_Times= models.CharField(max_length=20, blank=True)
+    Discussion_Days = MultiSelectField(choices=DAYS_OF_WEEK, max_choices=5, max_length=100, blank= True)
+    Discussion_Times = models.CharField(max_length=20, blank=True)
     Course_Description = models.TextField(blank=True)
     Office_Hours_per_week = models.PositiveIntegerField(blank=True, null=True)
     TA_Positions = models.PositiveIntegerField(blank=True, null=True)

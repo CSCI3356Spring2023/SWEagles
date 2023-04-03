@@ -10,13 +10,11 @@
 
   .main-container{
       font-family: Times New Roman; 
-      background-color:#800000;
-      color: rgb(0, 0, 0);
       content: center;
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 120px;
   }
 
   .login-button {
@@ -37,22 +35,45 @@
 	  
 
   }
+  .banner {
+    height: 15vh;
+    width: 100%;
+    font-family: Times New Roman; 
+    background-color: #800000;
+    margin: 0 auto;
+    color: white;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2vh;
+  }
+  .sub-banner {
+    font-size: 10px;
+}
 </style >
   <head>
     <title>Create a Course</title>
   </head>
   <body>
     
-    <div class="main-container">
-      <h1 >BOSTON COLLEGE </h1>
-      <h1 >TA System</h1>
-    <h2>Create a Course</h2>
-    <form method="POST">
-      {% csrf_token %}
-	  {{ form.as_p }}
-      <input class="login-button" type='submit', value='Save'/>
-    </form>
-  </div>
+    <div class="banner">
+      <h1>BOSTON COLLEGE</h1>
+      <div lass="sub-banner">
+          <h2>TA System</h2>
+      </div>
+    </div>
+    <div class = "main-container">
+      <br>
+      <h4>Create a Course</h4>
+        <form method="POST">
+          {% csrf_token %}
+        {{ form.as_p }}
+          <input class="login-button" type='submit', value='Save'/>
+        </form>
+    </div>
   </body>
 </html>
 {% endblock %}

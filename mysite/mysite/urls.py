@@ -21,7 +21,7 @@ from landing_page import views as landing_views
 from course import views as course_views
 from home_page import views as home_views
 from course_app import views as course_app_views
-from show_courses import views as show_views
+from show_courses import views as show_courses_views
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -41,8 +41,8 @@ urlpatterns = [
     path('home/', home_views.home_view, name='home'),
     path('course_app/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
-    path('view_courses_instructor/', show_views.instructor_view, name='view_courses_instructor'),
-    path('view_courses_student/', show_views.student_view, name='view_courses_student'),
+    path('view_courses_instructor/', show_courses_views.show_courses_instructor_view, name='view_courses_instructor'),
+    path('view_courses_student/', show_courses_views.show_courses_student_view, name='view_courses_student'),
     path('welcome/<str:custom_attribute>/', views.welcome_view, name='welcome'),
     path('student_dashboard/<str:custom_attribute>/', views.student_view, name='student'),
     path('instructor_dashboard/<str:custom_attribute>/', views.instructor_view, name='instructor'),

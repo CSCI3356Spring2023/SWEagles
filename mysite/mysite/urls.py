@@ -23,6 +23,8 @@ from home_page import views as home_views
 from course_app import views as course_app_views
 from show_courses import views as show_views
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 admin.site.site_header = 'Boston College TA Application'
 admin.site.index_title = 'Admin Information'
@@ -44,4 +46,4 @@ urlpatterns = [
     path('welcome/<str:custom_attribute>/', views.welcome_view, name='welcome'),
     path('student_dashboard/<str:custom_attribute>/', views.student_view, name='student'),
     path('instructor_dashboard/<str:custom_attribute>/', views.instructor_view, name='instructor'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

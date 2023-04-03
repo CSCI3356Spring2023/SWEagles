@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'course.apps.CourseConfig',
     'course_app.apps.CourseAppConfig'
-]
+    ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -147,6 +147,18 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'eagledesigns2023@gmail.com'
 #EMAIL_HOST_PASSWORD = 'sweagles123'
 EMAIL_HOST_PASSWORD = 'xpzcnqvelqoprdwm' # App password
+
+# Static files
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    ]
 
 AUTHENTICATION_BACKENDS = [
     'login.models.CustomUserBackend',

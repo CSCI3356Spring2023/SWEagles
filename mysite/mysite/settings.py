@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'multiselectfield',
     'crispy_forms',
     'crispy_bootstrap4',
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'course.apps.CourseConfig',
     'course_app.apps.CourseAppConfig'
-]
+    ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -136,3 +137,33 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap4')
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# Email sending
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'eagledesigns2023@gmail.com'
+#EMAIL_HOST_PASSWORD = 'sweagles123'
+EMAIL_HOST_PASSWORD = 'xpzcnqvelqoprdwm' # App password
+
+# Static files
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    ]
+
+AUTHENTICATION_BACKENDS = [
+    'login.models.CustomUserBackend',
+   # 'django.contrib.auth.backends.ModelBackend',
+]
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_SECURE = True

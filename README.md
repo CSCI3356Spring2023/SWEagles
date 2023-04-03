@@ -11,6 +11,10 @@
     If the above does not work, try:
     pip install git+https://github.com/django-crispy-forms/crispy-bootstrap4.git
 
+### Install multiselectfield
+    pip install django-multiselectfield
+
+
 ## Running the Server
     cd mysite (change directory to mysite folder)
     python manage.py migrate

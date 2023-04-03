@@ -11,6 +11,8 @@ from course.models import AddCourseModel
 
 ##show_courses will show course, course ID, and 2 buttons: view apps + edit courses
 def show_courses_instructor_view(request):
+    current_user = request.user
+    print(current_user)
     course_list = AddCourseModel.objects.all()
     context = {
         'course_list' : course_list

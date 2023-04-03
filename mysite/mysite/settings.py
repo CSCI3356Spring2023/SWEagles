@@ -148,3 +148,10 @@ EMAIL_HOST_USER = 'eagledesigns2023@gmail.com'
 #EMAIL_HOST_PASSWORD = 'sweagles123'
 EMAIL_HOST_PASSWORD = 'xpzcnqvelqoprdwm' # App password
 
+AUTHENTICATION_BACKENDS = [
+    'login.models.CustomUserBackend',
+   # 'django.contrib.auth.backends.ModelBackend',
+]
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_SECURE = True

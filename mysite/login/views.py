@@ -13,6 +13,7 @@ def login_view(request):
         user = CustomUserBackend.authenticate(request=request, username=username, password=password)
         if user is not None:
             login(request, user)
+            request.session['username'] = user.username
             messages.info(request, f"You are now logged in as {username}")
             messages.info(request, f"You are {user.role}")
             user_info = request.user

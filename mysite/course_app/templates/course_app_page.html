@@ -20,10 +20,10 @@
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 50;
       text-align: left;
-      padding-top: 50px;
+      padding-top: 40px;
       padding-left: 75px;
-      padding-right: 250px;
-      padding-bottom: 20px;
+      padding-right: 500px;
+      padding-bottom: 50px;
   }
 
 </style>
@@ -33,16 +33,20 @@
 <div class="main-container">
       <h1>BOSTON COLLEGE</h1>
       <h2>Applying for a Course</h2>
-      <div style="padding: 20px;">
+      <div style="padding: 10px;">
       </div>
       <div>
-          <h2>Computer Science 1</h2>
-          <h2>CSCI 1101.01</h2>
-          <p>This course is an introduction to the art and science of computer programming and to some of the fundamental concepts of computer science. Students will write programs in the Python programming language.
-TA Requirements: Python, OOP programming, 2 hrs/wk Office hours, 3 hrs/wk Grading</p>
-          <form action ="{% url 'course_app' %}" method="POST" enctype="multipart/form-data" class="form-group">
+          <h2>{{course.Course_Name}}</h2>
+          <h2>{{course.Course_ID}}.{{course.Section}}</h2>
+          <p>{{ course.Course_Description }}</p>
+          {% if course.Marking_Meetings != '0' %}
+            <p>Amount of Marking Meetings: {{course.Marking_Meetings}}</p>
+          {% endif %}
+          <form method="POST" enctype="multipart/form-data" class="form-group" >
             {% csrf_token %}
         	  {{ form.as_p }}
+            <input type="hidden" name="Course_Name" value="{{ course.Course_Name }}">
+            <input type="hidden" name="Course_Section" value="{{ course.Section }}">
             <button type="submit">Apply</button>
           </form>
 

@@ -135,7 +135,7 @@ th:nth-child(4), td:nth-child(4) {
                         <td>{{ course.Course_Description }}</td>
                         <td>{{ course.Instructor_Name }}</td>
                         <td>{{ course.Office_Hours_per_week }}</td>
-                        <th><a href="{% url 'course_app' course.id %}"> Apply </a></th>
+                        <th><a href="{% url 'course_app' course.id current_user_id %}"> Apply </a></th>
                     </tr>
                 {% endfor %}
             </tbody>

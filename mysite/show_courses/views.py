@@ -13,7 +13,7 @@ from course.models import AddCourseModel
 def show_courses_instructor_view(request):
     current_user = request.user
     course_list = AddCourseModel.objects.all()
-    course_list = course_list.filter(Instructor_ID=current_user)
+    course_list = course_list.filter(Instructor_Name=current_user)
     context = {
         'course_list' : course_list
     }

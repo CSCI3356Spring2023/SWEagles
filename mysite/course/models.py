@@ -16,7 +16,8 @@ YES_NO = (('yes', 'Yes'),
            ('no', 'No'),
            )
 class AddCourseModel(models.Model):
-    Instructor_ID = models.CharField(max_length=10, blank=True)
+    Instructor_Name = models.CharField(max_length=100, editable=False)
+    Instructor_ID = models.CharField(max_length=10, blank=False)
     Course_Name = models.CharField(max_length=100, blank=True)
     Course_ID = models.CharField(max_length=100, blank=True)
     Section = models.PositiveIntegerField(blank=True, null=True)
@@ -33,7 +34,7 @@ class AddCourseModel(models.Model):
     Discussion_Days = MultiSelectField(choices=DAYS_OF_WEEK, max_choices=5, max_length=100, blank= True)
     Discussion_Times = models.CharField(max_length=20, blank=True)
     Course_Description = models.TextField(blank=True)
- 
+
 
 
 

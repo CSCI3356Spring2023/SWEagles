@@ -13,6 +13,7 @@ def add_course_view(request):
         application.Instructor_ID = Instructor_ID
         application.save()
         form = AddCourseForm()
+        return redirect('instructor_landing_page')
 
     context = {
         'form' : form

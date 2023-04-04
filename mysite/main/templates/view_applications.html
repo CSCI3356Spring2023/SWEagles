@@ -63,19 +63,23 @@ table, th, td {
 
 <body>
     <h1> APPLICATIONS </h1>
+
     <div>
         <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
                     <th>Student Name</th>
-                    <th>Resume </th>
+                    <th> Preferred Discussion time 1 </th>
+                    <th> Preferred Discussion time 2 </th>
                 </tr>
             </thead>
             <tbody>
                 {% for application in custom_attribute %}
                     <tr>
                         <td>{{ application.First_and_Last_Name }}</td>
-                        <td> <a href="../../{{ application.Resume }}" target="_blank" >Open Resume</a></td>
+                        <td>{{ application.Discussion_Time_1 }}</td>
+                        <td>{{ application.Discussion_Time_2 }}</td>
+                        
                         
                     </tr>
                 {% endfor %}

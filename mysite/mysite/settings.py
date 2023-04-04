@@ -162,7 +162,7 @@ STATICFILES_FINDERS = [
 
 AUTHENTICATION_BACKENDS = [
     'login.models.CustomUserBackend',
-   # 'django.contrib.auth.backends.ModelBackend',
+   'django.contrib.auth.backends.ModelBackend',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

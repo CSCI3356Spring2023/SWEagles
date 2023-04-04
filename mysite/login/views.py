@@ -12,7 +12,8 @@ def login_view(request):
         password = request.POST.get('password')
         user = CustomUserBackend.authenticate(request=request, username=username, password=password)
         if user is not None:
-            login(request, user)
+            login(request, user, backend = 'login.models.CustomUserBackend')
+            
             request.session['username'] = user.username
             messages.info(request, f"You are now logged in as {username}")
             messages.info(request, f"You are {user.role}")

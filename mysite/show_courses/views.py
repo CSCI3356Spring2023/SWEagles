@@ -14,7 +14,6 @@ def show_courses_instructor_view(request):
     current_user = request.user
     course_list = AddCourseModel.objects.all()
     course_list = course_list.filter(Instructor_ID=current_user)
-
     context = {
         'course_list' : course_list
     }
@@ -26,7 +25,11 @@ def show_courses_instructor_view(request):
 
 def show_courses_student_view(request):
     course_list = AddCourseModel.objects.all()
+    current_user = request.user.username
+    current_user_id = request.user.id
     context = {
+        'current_user_id' : current_user_id,
+        'current_user' : current_user,
         'course_list' : course_list
     }
     return render(request, 'show_courses_student_view.html', context)

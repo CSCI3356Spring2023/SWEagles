@@ -5,36 +5,52 @@
 
 <html>
 <style>
-  p { font-size: 15px; }
   body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
   .main-container{
       font-family: Times New Roman;
-      background-color:#800000;
-      color: white;
-
-      content: center;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
       text-align: left;
-      padding-top: 40px;
-      padding-left: 75px;
-      padding-right: 500px;
-      padding-bottom: 50px;
+      justify-content: center;
+      align-items: center;
+
   }
+  .banner {
+    height: 15vh;
+    width: 100%;
+    font-family: Times New Roman; 
+    background-color: #800000;
+    margin: 0 auto;
+    color: white;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vh;
+    text-align: left;
+  }
+  .sub-banner {
+    font-size: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 </style>
 
 
 <body>
+  <div class="banner">
+    <h1>BOSTON COLLEGE</h1>
+    <div class="sub-banner">
+        <h2>TA System</h2>
+    </div>
+  </div>
 <div class="main-container">
-      <h1>BOSTON COLLEGE</h1>
-      <h2>Applying for a Course</h2>
-      <div style="padding: 10px;">
-      </div>
       <div>
           <h2>{{course.Course_Name}}</h2>
           <h2>{{course.Course_ID}}.{{course.Section}}</h2>

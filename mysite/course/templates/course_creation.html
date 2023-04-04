@@ -69,9 +69,6 @@
     <div class = "main-container">
       <br>
       <h4>Create a Course</h4>
-      <div>
-        <a href="{{ currentUrl}}/instructor_dashboard?custom_attribute={{request.user}}"><button class="login-button">home</button></a>
-      </div>
         <form method="POST">
           {% csrf_token %}
         {{ form.as_p }}

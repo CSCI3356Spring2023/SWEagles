@@ -27,6 +27,7 @@ def show_courses_student_view(request):
     course_list = AddCourseModel.objects.all()
     current_user = request.user.username
     current_user_id = request.user.id
+    print(current_user_id)
     context = {
         'current_user_id' : current_user_id,
         'current_user' : current_user,

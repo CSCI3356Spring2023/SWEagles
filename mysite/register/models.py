@@ -11,7 +11,8 @@ class CustomUser(AbstractUser):
     )
 
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
-    
+    app_counter = models.PositiveIntegerField(default=0)
+
     groups = models.ManyToManyField(
         Group,
         verbose_name="groups",
@@ -29,3 +30,8 @@ class CustomUser(AbstractUser):
         related_name="custom_users_permissions",  # specify a unique related_name
         related_query_name="custom_user",
     )
+    
+
+class StudentUser(CustomUser):
+    class Meta:
+        proxy = True

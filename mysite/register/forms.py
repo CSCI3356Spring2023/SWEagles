@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser
+from .models import *
 
 class CustomUserCreationForm(UserCreationForm):
     ROLE_CHOICES = (
@@ -13,8 +13,14 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'password1', 'password2', 'role')
-        
+        fields = ('username', 'email', 'password1', 'password2', 'role', 'app_counter')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        role = self.initial.get('role')
+        if role != 'student':
+            del self.fields['app_counter']
+
     def clean(self):
         cleaned_data = super().clean()
         password1 = cleaned_data.get('password1')

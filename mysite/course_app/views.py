@@ -12,7 +12,7 @@ def course_app_view(response, course_id, current_user_id):
     data = AddCourseModel.objects.get(id=course_id)
     student = StudentUser.objects.get(id=current_user_id)
     #print(student.app_counter)
-    if(student.app_counter > 4):
+    if(student.app_counter > 7):
         return HttpResponse('you have applied to the maximum amount of applications!')
 
     Required = data.Cover_Letter
@@ -55,6 +55,7 @@ def course_app_view(response, course_id, current_user_id):
                 application.Section = Course_Section
                 student.app_counter+=1
                 application.save()
+                student.save()
                 return redirect('student_landing_page')
 
         else:

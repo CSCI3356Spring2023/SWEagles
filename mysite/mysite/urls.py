@@ -23,6 +23,8 @@ from home_page import views as home_views
 from course_app import views as course_app_views
 from show_courses import views as show_courses_views
 from view_applications import views as application_views
+from student_view_appplications import views as student_application_views
+
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -45,5 +47,6 @@ urlpatterns = [
     path('view_courses_instructor/', show_courses_views.show_courses_instructor_view, name='view_courses_instructor'),
     path('view_courses_student/', show_courses_views.show_courses_student_view, name='view_courses_student'),
     path('instructor_landing_page/', landing_views.instructor_landing_page, name='instructor_landing_page'),
-     path('view_applications/<str:custom_attribute>/', application_views.view_applications, name='view_applications_list'),
+    path('view_applications/<str:custom_attribute>/', application_views.view_applications, name='view_applications_list'),
+    path('student_view_appplications/', student_application_views.view_applications, name='student_view_appplications'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

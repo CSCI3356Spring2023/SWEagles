@@ -6,10 +6,10 @@ class courseForm1(ModelForm):
 
     class Meta:
         model = courseApplicationAllRequired
-        fields = ['Discussion_Time_1', 'Discussion_Time_2', 'First_and_Last_Name', 'Resume', 'Cover_Letter', 'Reference_Letter']
+        fields = ['Discussion_Time_1', 'Discussion_Time_2', 'First_and_Last_Name', 'Username', 'Resume', 'Cover_Letter', 'Reference_Letter']
 
 class courseForm2(ModelForm):
 
     class Meta:
         model = courseApplicationOnlyResume
-        fields = ['Discussion_Time_1', 'Discussion_Time_2', 'First_and_Last_Name', 'Resume', 'Cover_Letter', 'Reference_Letter']
+        fields = ['Discussion_Time_1', 'Discussion_Time_2', 'First_and_Last_Name', 'Username','Resume', 'Cover_Letter', 'Reference_Letter']

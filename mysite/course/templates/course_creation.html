@@ -1,5 +1,6 @@
 
 {% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 {% block content %}
 
@@ -68,6 +69,9 @@
     </div>
     <div class = "main-container">
       <br>
+      <form method="POST" class="form-group">
+        <button type="submit"><a href="{{ currentUrl}}/instructor_landing_page">Home</button></a>
+    <br>
       <h4>Create a Course</h4>
         <form method="POST">
           {% csrf_token %}

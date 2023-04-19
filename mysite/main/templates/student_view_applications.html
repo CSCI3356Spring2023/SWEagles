@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load crispy_forms_tags %}
 <html>
   <style>
 
@@ -64,29 +65,35 @@ table, th, td {
 <body>
     <br>
       <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/instructor_landing_page">Home</button></a>
+        <button type="submit"><a href="{{ currentUrl}}/student_landing_page">Home</button></a>
     <br>
-    <br>
-      <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/view_courses_instructor">View Courses</button></a>
-    <br>
-    <h1> APPLICATIONS </h1>
+    <h1> YOUR APPLICATIONS </h1>
 
     <div>
         <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
-                    <th>Student Name</th>
+                    <th>Course Name</th>
                     <th> Preferred Discussion time 1 </th>
                     <th> Preferred Discussion time 2 </th>
+                    <th> Status </th>
                 </tr>
             </thead>
             <tbody>
                 {% for application in custom_attribute %}
                     <tr>
-                        <td>{{ application.First_and_Last_Name }}</td>
+                        <td>{{ application.Course_Name }}</td>
                         <td>{{ application.Discussion_Time_1 }}</td>
                         <td>{{ application.Discussion_Time_2 }}</td>
+                        <td><form method="POST" class="form-group">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            
+                                <a href="/login" class="button">
+                                    View Status
+                                </a>
+                            
+                        </form></td>
                         
                         
                     </tr>

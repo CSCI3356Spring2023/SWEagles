@@ -167,3 +167,10 @@ AUTHENTICATION_BACKENDS = [
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_SECURE = True
+
+ALLOWED_FILTERS = {
+    'default': [
+        'django_filters.filters.*',
+        'crispy_forms.templatetags.crispy_forms_filters.*',
+    ],
+}

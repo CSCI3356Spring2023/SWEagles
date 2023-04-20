@@ -15,4 +15,4 @@ def view_status(response, course_name, student_username):
             'course' : course_name,
         }
 
-    return render(response, 'view_status.html', context)
+    return render(response, 'view_status.html',  {'custom_attribute': context})

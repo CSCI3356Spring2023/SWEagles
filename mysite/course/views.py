@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import AddCourseForm
-<<<<<<< HEAD
 from .models import AddCourseModel
-=======
 from course.models import AddCourseModel
->>>>>>> 07486f499772f7e92709cac0cdf7e4ce3291468e
 # Create your views here.
 
 def add_course_view(request):
@@ -27,8 +24,6 @@ def add_course_view(request):
 
     return render(request, 'course_creation.html', {'form': form})
 
-<<<<<<< HEAD
-
 def update_status_field(request, course_id):
 
     data = AddCourseModel.objects.get(id=course_id)
@@ -40,7 +35,6 @@ def update_status_field(request, course_id):
         data.Status = "Open"
     data.save()
     return redirect('view_courses_instructor')
-=======
 def edit_course_view(response, course_id):
     Instructor_Name = response.user.username
     Instructor_ID = response.user.id
@@ -64,5 +58,3 @@ def edit_course_view(response, course_id):
     }
 
     return render(response, 'edit_course.html', context)
-    
->>>>>>> 07486f499772f7e92709cac0cdf7e4ce3291468e

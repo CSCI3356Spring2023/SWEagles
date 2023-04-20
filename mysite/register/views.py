@@ -35,7 +35,7 @@ def register(response):
 
             role = form.cleaned_data.get('role')
 
-            # set admin as suoeruser
+            # set admin as superuser
             if role == 'admin':
                 user.is_superuser = True
                 user.is_staff = True

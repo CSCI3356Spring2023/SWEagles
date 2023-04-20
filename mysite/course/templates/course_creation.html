@@ -76,7 +76,7 @@
         <form method="POST">
           {% csrf_token %}
         {{ form.as_p }}
-          <input class="login-button" type='submit', value='Save'/>
+          <input class="login-button", action="{% url 'send_course_creation_email' %}", type='submit', value='Save'/>
         </form>
     </div>
   </body>

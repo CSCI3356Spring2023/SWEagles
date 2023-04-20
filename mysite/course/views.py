@@ -1,7 +1,25 @@
 from django.shortcuts import render, redirect
 from .forms import AddCourseForm
 from course.models import AddCourseModel
+from register.models import CustomUser
+from mysite.utils import send_email
 # Create your views here.
+
+def send_course_creation_email(response, course_id, current_user_id):
+
+
+    data = AddCourseModel.objects.get(id=course_id)
+    instructor = CustomUser.objects.get(id=current_user_id)
+
+    Course_Name = data.Course_Name
+
+    # Send successful application email
+    message = "Hi "+instructor.get_full_name()+",\n\n Thank you for creating the " + Course_Name+ " course!"
+    message += " You will be notified when any applications are sent in, and when any TA accepts or rejects the position." 
+    message += "\n\nBest,\n The SWEagles Team"
+    subject = "Thank you for creating the " + Course_Name + " course"
+
+    send_email(instructor.email, subject, message)   
 
 def add_course_view(request):
 

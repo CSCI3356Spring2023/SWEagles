@@ -5,6 +5,7 @@ from course.models import AddCourseModel
 from register.models import StudentUser
 from .models import *
 from django.http import HttpResponse
+from mysite.utils import send_email
 
 def course_app_view(response, course_id, current_user_id):
 
@@ -31,6 +32,16 @@ def course_app_view(response, course_id, current_user_id):
                 student.app_counter+=1
                 application.save()
                 student.save()
+
+                # Send successful application email
+                message = "Hi "+student.first_name+",\n\n Thank you for applying to TA " + Course_Name+ "!"
+                message += " You will be notified once your application is accepted or rejected." 
+                message += " Feel free to keep applying to more positions, you can have up to five active applications at once."
+                message += "\n\nBest,\n The SWEagles Team"
+                subject = "Thank you for applying to TA " + Course_Name
+
+                send_email(student.email, subject, message)                
+
                 return redirect('student_landing_page')
 
         else:

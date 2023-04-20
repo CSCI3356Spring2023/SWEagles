@@ -8,7 +8,7 @@
 	pip install django-crispy-forms
 ### Install crispy bootstrap4
 	pip install django-crispy-bootstrap4
-    If the above does not work, try:
+##### If the above does not work, try:
     pip install git+https://github.com/django-crispy-forms/crispy-bootstrap4.git
 
 ### Install multiselectfield
@@ -19,4 +19,6 @@
     cd mysite (change directory to mysite folder)
     python manage.py migrate
     python manage.py runserver
-
+##### If calling python raises an error, try replacing it with "python3":
+    python3 manage.py migrate
+    python3 manage.py runserver

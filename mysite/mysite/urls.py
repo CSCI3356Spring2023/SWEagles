@@ -24,6 +24,7 @@ from course_app import views as course_app_views
 from show_courses import views as show_courses_views
 from view_applications import views as application_views
 from student_view_appplications import views as student_application_views
+from view_status import views as status_views
 from course.views import update_status_field
 
 from . import views
@@ -42,6 +43,7 @@ urlpatterns = [
     path("login/", login_view.login_view, name="login"),
     path('logout/', login_view.logout_view, name='logout'),
     path('course_creation/', course_views.add_course_view, name='course_creation'),
+    path('edit_course/<str:course_id>/', course_views.edit_course_view, name='edit_course'),
     path('home/', home_views.home_view, name='home'),
     path('course_app/<int:course_id>/<int:current_user_id>/', course_app_views.course_app_view, name='course_app'),
     path('student_landing_page/', landing_views.student_landing_page, name="student_landing_page"),
@@ -50,5 +52,9 @@ urlpatterns = [
     path('instructor_landing_page/', landing_views.instructor_landing_page, name='instructor_landing_page'),
     path('view_applications/<str:custom_attribute>/', application_views.view_applications, name='view_applications_list'),
     path('student_view_appplications/', student_application_views.view_applications, name='student_view_appplications'),
+<<<<<<< HEAD
     path('update_status_field/<int:course_id>/', course_views.update_status_field, name='update_status_field'),
+=======
+    path('view_status/<str:course_name>/<str:student_username>/', status_views.view_status, name='view_status'),
+>>>>>>> 07486f499772f7e92709cac0cdf7e4ce3291468e
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

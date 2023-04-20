@@ -63,35 +63,10 @@ table, th, td {
 </div>
 
 <body>
-    <br>
-      <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/student_landing_page">Home</button></a>
-    <br>
-    <h1> YOUR APPLICATIONS </h1>
+    <h1> Application Status for {{ custom_attribute.course }} </h1>
 
     <div>
-        <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
-            <thead>
-                <tr>
-                    <th>Course Name</th>
-                    <th> Preferred Discussion time 1 </th>
-                    <th> Preferred Discussion time 2 </th>
-                    <th> Status </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for application in custom_attribute %}
-                    <tr>
-                        <td>{{ application.Course_Name }}</td>
-                        <td>{{ application.Discussion_Time_1 }}</td>
-                        <td>{{ application.Discussion_Time_2 }}</td>
-                        <th><a href="{% url 'view_status' application.Course_Name application.Username %}">View Status</th>
-                        
-                        
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        {{ custom_attribute }}
     </div>
     <br><br>
 </body>

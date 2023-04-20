@@ -170,7 +170,9 @@ th:nth-child(4), td:nth-child(4) {
                         <td><form method="POST" class="form-group">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <button type="submit">Edit</button>
+                            <a href="/edit_course/{{ course.Course_ID }} "class="button">
+                                Edit
+                            </a>
                         </form></td>
 
                         <td>{{ course.Status }}</td>

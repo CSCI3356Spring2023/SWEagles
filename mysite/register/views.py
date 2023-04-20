@@ -29,6 +29,7 @@ def register(response):
 
             # Send account creation email
             message = "Congratulations "+username+", your account with the TA System has been successuly created!"
+            message += "\n\nBest,\n The SWEagles Team"
             subject = "Boston College TA System Account Creation"
             send_email(form.cleaned_data.get('email'), subject, message)
 

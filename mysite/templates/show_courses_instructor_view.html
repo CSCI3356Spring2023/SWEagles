@@ -4,7 +4,7 @@
 <style>
 
     .header {
-        font-family: Times New Roman; 
+        font-family: Times New Roman;
         background-color:#800000;
         color: white;
         content: center;
@@ -14,8 +14,8 @@
         padding-top: 0px;
     }
     .login-button {
-        font-family: Times New Roman; 
-        background-color: #BC9B6A; 
+        font-family: Times New Roman;
+        background-color: #BC9B6A;
         border: none;
         color: white;
         padding: 10px 20px;
@@ -30,7 +30,7 @@
         text-align: center;
     }
     .main-container{
-        font-family: Times New Roman; 
+        font-family: Times New Roman;
         background-color:white;
         color: black;
         content: center;
@@ -45,12 +45,12 @@
         text-align: center;
         width: 75%;
         padding: 2px;
-    }   
+    }
 
 th:nth-child(4), td:nth-child(4) {
     width: 10%; /* adjust this value to your preference */
   }
-  
+
   th:nth-child(5), td:nth-child(5) {
     width: 10%; /* adjust this value to your preference */
   }
@@ -63,7 +63,7 @@ th:nth-child(4), td:nth-child(4) {
   .banner {
     height: 15vh;
     width: 100%;
-    font-family: Times New Roman; 
+    font-family: Times New Roman;
     background-color: #800000;
     margin: 0 auto;
     color: white;
@@ -104,7 +104,7 @@ th:nth-child(4), td:nth-child(4) {
       </div>
 
     <div class="main-container">
-        <br><br><br> 
+        <br><br><br>
         <form method="POST" class="form-group">
             {% csrf_token %}
             {{ form|crispy }}
@@ -118,7 +118,7 @@ th:nth-child(4), td:nth-child(4) {
         <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
-                    
+
                     <th>Course Name </th>
                     <th>Course ID</th>
                     <!--
@@ -135,12 +135,15 @@ th:nth-child(4), td:nth-child(4) {
                     <th>TA positions</th>
                     <th>View</th>
                     <th>Edit</th>
+                    <th>Status</th>
+                    <th>Open Course</th>
+                    <th>Close Course</th>
                 </tr>
             </thead>
             <tbody>
                 {% for course in course_list %}
                     <tr>
-                        
+
                         <td>{{ course.Course_Name }}</td>
                         <td>{{ course.Course_ID }}</td>
                         <!--<td>{{ course.Instructor_ID }}<td>
@@ -154,25 +157,33 @@ th:nth-child(4), td:nth-child(4) {
                         <td>{{ course.Instructor }}</td>
                         <td>{{ course.Office_Hours_per_week }}</td>-->
                         <td>{{ course.TA_Positions}}</td>
+
                         <td><form method="POST" class="form-group">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            
+
                                 <a href="/view_applications/{{ course.Course_Name }} "class="button">
                                     View Applications
                                 </a>
-                            
+
                         </form></td>
                         <td><form method="POST" class="form-group">
                             {% csrf_token %}
                             {{ form|crispy }}
                             <button type="submit">Edit</button>
                         </form></td>
+
+                        <td>{{ course.Status }}</td>
+
+
+                        <th><a href="{% url 'update_status_field' course.id %}"> Open </a></th>
+                        <th><a href="{% url 'update_status_field' course.id %}"> Close </a></th>
+
+
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-</div>
 </body>
 {% endblock %}

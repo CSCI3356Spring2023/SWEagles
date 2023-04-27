@@ -15,6 +15,7 @@ class courseApplicationAllRequired(models.Model):
     Resume = models.FileField(upload_to='course_app/resumes/', blank=False)
     Cover_Letter = models.FileField(upload_to='course_app/cover_letters/', blank = False)
     Reference_Letter = models.FileField(upload_to='course_app/reference_letters/', blank = False)
+    Anything_you_want_to_add  = models.CharField(max_length=500, blank=True)
 
 
 class courseApplicationOnlyResume(models.Model):
@@ -31,3 +32,4 @@ class courseApplicationOnlyResume(models.Model):
     Resume = models.FileField(upload_to='course_app/resumes/', blank=False)
     Cover_Letter = models.FileField(upload_to='course_app/cover_letters/', blank = True)
     Reference_Letter = models.FileField(upload_to='course_app/reference_letters/', blank = True)
+    Anything_you_want_to_add = models.CharField(max_length=500, blank=True)

@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 #from .models import ToDoList, Item
 #from .forms import CreateNewList
 # Create your views here.
-from course_app.models import courseApplicationAllRequired, courseApplicationOnlyResume
+from course_app.models import courseApplicationAllRequired
 
 # Create your views here.
 
@@ -14,12 +14,9 @@ def view_applications(request, custom_attribute):
     application_list_1 =  courseApplicationAllRequired.objects.all()
     application_list_1 = application_list_1.filter(Course_Name=custom_attribute)
     
-    # get file optional applications
-    application_list_2 =  courseApplicationOnlyResume.objects.all()
-    application_list_2 = application_list_2.filter(Course_Name=custom_attribute)
     
     # append sets
-    combined_applications = chain(application_list_1, application_list_2)
+    combined_applications = application_list_1
     
     return render(request, 'view_applications.html', {'custom_attribute': combined_applications})
 

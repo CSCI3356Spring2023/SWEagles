@@ -4,4 +4,4 @@ from .models import AddCourseModel
 class AddCourseForm(forms.ModelForm):
     class Meta:
         model = AddCourseModel
-        fields = ['Course_Name', 'Course_ID', 'Section', 'Marking_Meetings', 'Resume_Required', 'Cover_Letter', 'References', 'Office_Hours_per_week', 'TA_Positions', 'Lecture_Days', 'Lecture_Times', 'Discussion_Days', 'Discussion_Times', 'Course_Description']
+        fields = ['Course_Name', 'Course_ID', 'Section', 'Marking_Meetings', 'Office_Hours_per_week', 'TA_Positions', 'Lecture_Days', 'Lecture_Times', 'Discussion_Days', 'Discussion_Times', 'Course_Description']

@@ -25,9 +25,7 @@ class AddCourseModel(models.Model):
     Section = models.PositiveIntegerField(blank=True, null=True)
 
     Marking_Meetings = models.CharField(choices=YES_NO, max_length=15, blank= True)
-    Resume_Required = models.CharField(choices=OPTIONS, max_length=15, blank= True)
-    Cover_Letter = models.CharField(choices=OPTIONS, max_length=15, blank= True)
-    References = models.CharField(choices=OPTIONS, max_length=15, blank= True)
+
     Office_Hours_per_week = models.PositiveIntegerField(blank=True, null=True)
     TA_Positions = models.PositiveIntegerField(blank=True, null=True)
 

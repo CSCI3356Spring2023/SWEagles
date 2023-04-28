@@ -53,8 +53,8 @@
   </div>
 <div class="main-container">
   <br>
-      <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/student_landing_page">Home</button></a>
+  <button type="submit"><a href="{{ currentUrl}}/student_landing_page">Home</button></a>
+        
     <br>
       <div>
           <h2>{{course.Course_Name}}</h2>
@@ -65,7 +65,15 @@
           {% endif %}
           <form method="POST" enctype="multipart/form-data" class="form-group" >
             {% csrf_token %}
-        	  {{ form.as_p }}
+        	  {% for item in form %}
+              <div class="fieldWrapper">
+                  {{ item.label }} {{ item }}
+                  {% if item.help_text %}
+                      {{ item.help_text|safe }}
+                  {% endif %}
+              </div>
+              <br>
+            {% endfor %}
             <input type="hidden" name="Course_Name" value="{{ course.Course_Name }}">
             <input type="hidden" name="Course_Section" value="{{ course.Section }}">
             <button type="submit">Apply</button>

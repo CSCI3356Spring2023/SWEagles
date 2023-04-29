@@ -13,6 +13,8 @@ class CustomUser(AbstractUser):
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     app_counter = models.PositiveIntegerField(default=0)
 
+    hire_status = models.CharField(max_length=7, default='unhired')
+
     groups = models.ManyToManyField(
         Group,
         verbose_name="groups",

@@ -13,13 +13,14 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'password1', 'password2', 'role', 'app_counter')
+        fields = ('username', 'email', 'password1', 'password2', 'role', 'app_counter', 'hire_status')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         role = self.initial.get('role')
         if role != 'student':
             del self.fields['app_counter']
+            del self.fields['hire_status']
 
     def clean(self):
         cleaned_data = super().clean()

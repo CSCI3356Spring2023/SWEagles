@@ -41,6 +41,7 @@ def register(response):
                 
             if role == 'student':
                 user.app_counter = 0
+                user.hired_status = "unhired"
 
             #save user
             user.save()

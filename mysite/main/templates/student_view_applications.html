@@ -85,7 +85,7 @@ table, th, td {
                         <td>{{ application.Course_Name }}</td>
                         <td>{{ application.Discussion_Time_1 }}</td>
                         <td>{{ application.Discussion_Time_2 }}</td>
-                        <th><a href="{% url 'view_status' application.Course_Name application.Username %}">View Status</th>
+                        <th><a href="{% url 'view_status' application.Course_Name application.Username application.Application_Status%}">View Status</th>
                         
                         
                     </tr>

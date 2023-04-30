@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
+from mysite.utils import send_email
 from .forms import *
 from course.models import AddCourseModel
 from register.models import StudentUser
 from .models import *
 from django.http import HttpResponse
+from django.contrib import messages
 
 def course_app_view(response, course_id, current_user_id):
-
 
     data = AddCourseModel.objects.get(id=course_id)
     student = StudentUser.objects.get(id=current_user_id)
@@ -24,6 +25,7 @@ def course_app_view(response, course_id, current_user_id):
             application = form.save(commit=False)
             application.Course_Name = Course_Name
             application.Section = Course_Section
+            application.Application_Status = "Pending"
             student.app_counter+=1
             application.save()
             student.save()
@@ -39,3 +41,42 @@ def course_app_view(response, course_id, current_user_id):
     }
 
     return render(response, 'course_app_page.html', context)
+
+
+def update_application_status(request, username, course_name):
+
+
+    application = courseApplicationAllRequired.objects.get(Username=username, Course_Name=course_name)
+    student = StudentUser.objects.get(Username=username)
+    
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        if status == 'accept':
+            
+            #update status
+            application.Application_Status = 'Accepted'
+
+            # Send accepted email
+            message = "Congratulations "+username+", you have been selected to TA for "+course_name +"! Check your account."
+            subject = "Boston College TA Application Status Update"
+            send_email(student.email, subject, message)
+       
+        elif status == 'reject':
+            
+            #update status
+            application.Application_Status = 'Rejected'
+            
+            # Send rejected email
+            message = "Hello "+username+", you have not been selected to TA for "+course_name +"."
+            subject = "Boston College TA Application Status Update"
+            send_email(student.email, subject, message)
+            
+        # save application
+        application.save()
+
+
+    # go back to view_applications page
+    application_list_1 =  courseApplicationAllRequired.objects.all()
+    application_list_1 = application_list_1.filter(Course_Name=course_name)
+
+    return render(request, 'view_applications.html', {'custom_attribute': application_list_1})

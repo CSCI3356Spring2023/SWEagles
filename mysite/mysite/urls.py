@@ -53,5 +53,6 @@ urlpatterns = [
     path('view_applications/<str:custom_attribute>/', application_views.view_applications, name='view_applications_list'),
     path('student_view_appplications/', student_application_views.view_applications, name='student_view_appplications'),
     path('update_status_field/<int:course_id>/', course_views.update_status_field, name='update_status_field'),
-    path('view_status/<str:course_name>/<str:student_username>/', status_views.view_status, name='view_status'),
+    path('update_application_status/<str:username>/<str:course_name>/', course_app_views.update_application_status, name='update_application_status'),
+    path('view_status/<str:course_name>/<str:student_username>/<str:application_status>/', status_views.view_status, name='view_status'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

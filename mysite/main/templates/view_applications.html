@@ -36,6 +36,38 @@
     border: 2px solid #fff;
     text-align: center;
 }
+.accept-button {
+  font-family: Times New Roman; 
+  background-color: green; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  text-align: center;
+}
+.reject-button {
+  font-family: Times New Roman; 
+  background-color: red; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  text-align: center;
+}
 .buttons {
     display: flex;
   flex-direction: column;
@@ -51,6 +83,15 @@ table, th, td {
 }  
 
   </style>
+
+  <script>
+    function sendRequest(button) {
+      button.innerHTML = "Request Sent";
+      button.disabled = true;
+      button.style.backgroundColor = "#CCCCCC"; // change color to grey
+      alert("Request sent successfully!")
+    }
+    </script>
 <head>
     <title>Welcome</title>
 </head>
@@ -60,15 +101,12 @@ table, th, td {
       <h2>TA System</h2>
   </div>
 </div>
-
+<br>
+<button type="submit"><a href="{{ currentUrl}}/instructor_landing_page">Home</a></button>
+<br><br><br>
+<button type="submit"><a href="{{ currentUrl}}/view_courses_instructor">View Courses</a></button>
 <body>
-    <br>
-      <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/instructor_landing_page">Home</button></a>
-    <br>
-    <br>
-      <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/view_courses_instructor">View Courses</button></a>
+    <br>     
     <br>
     <h1> APPLICATIONS </h1>
 
@@ -87,7 +125,20 @@ table, th, td {
                         <td>{{ application.First_and_Last_Name }}</td>
                         <td>{{ application.Discussion_Time_1 }}</td>
                         <td>{{ application.Discussion_Time_2 }}</td>
-                        
+                        <th>
+                          <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="accept">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="accept">
+                            <button class="accept-button" type="submit" onclick="sendRequest(this)">Accept</button>
+                          </form>
+                        </th>
+                        <th>
+                          <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="reject">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="reject">
+                            <button class="reject-button" type="submit" onclick="sendRequest(this)">Reject</button>
+                          </form>
+                        </th>
                         
                     </tr>
                 {% endfor %}

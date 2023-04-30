@@ -1,5 +1,5 @@
+import uuid
 from django.db import models
-
 
 class courseApplicationAllRequired(models.Model):
     COURSE1 = "Monday 6-6:50"
@@ -14,5 +14,5 @@ class courseApplicationAllRequired(models.Model):
     Username = models.CharField(max_length=100, blank=True, default='')
     Resume = models.FileField(upload_to='course_app/resumes/', blank=False)
     Anything_you_want_to_add  = models.CharField(max_length=500, blank=True)
-
+    Application_Status = models.CharField(max_length=100, editable=False, default=' ')
 

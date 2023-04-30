@@ -35,6 +35,7 @@ def update_status_field(request, course_id):
         data.Status = "Open"
     data.save()
     return redirect('view_courses_instructor')
+
 def edit_course_view(response, course_id):
     Instructor_Name = response.user.username
     Instructor_ID = response.user.id

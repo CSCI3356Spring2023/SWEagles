@@ -17,11 +17,12 @@ def view_applications(request, custom_attribute):
     current_user = request.user
     # get applications with file 
     application_list_1 =  courseApplicationAllRequired.objects.all()
-    application_list_1 = application_list_1.filter(Username__in=unhired_users)
+    application_list_2 = application_list_1.filter(Course_Name=custom_attribute)
+    application_list_3 = application_list_2.filter(Username__in=unhired_users)
     
     
     # append sets
-    combined_applications = application_list_1
+    combined_applications = application_list_3
     
     return render(request, 'view_applications.html', {'custom_attribute': combined_applications})
 

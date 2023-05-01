@@ -55,7 +55,7 @@ def update_application_status(request, username, course_name):
             
             #update status
             application.Application_Status = 'Accepted'
-
+            application.save()
             # Send accepted email
             message = "Congratulations "+username+", you have been selected to TA for "+course_name +"! Check your account."
             subject = "Boston College TA Application Status Update"
@@ -65,14 +65,12 @@ def update_application_status(request, username, course_name):
             
             #update status
             application.Application_Status = 'Rejected'
-            
+            application.save()
             # Send rejected email
             message = "Hello "+username+", you have not been selected to TA for "+course_name +"."
             subject = "Boston College TA Application Status Update"
             send_email(student.email, subject, message)
             
-        # save application
-        application.save()
 
 
     # go back to view_applications page

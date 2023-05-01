@@ -1,9 +1,8 @@
 from itertools import chain
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-#from .models import ToDoList, Item
-#from .forms import CreateNewList
-# Create your views here.
+from mysite.utils import send_email
+
 from course_app.models import courseApplicationAllRequired
 
 from register.models import StudentUser
@@ -25,5 +24,3 @@ def view_applications(request, custom_attribute):
     combined_applications = application_list_3
     
     return render(request, 'view_applications.html', {'custom_attribute': combined_applications})
-
-

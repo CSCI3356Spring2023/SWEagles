@@ -1,0 +1,8 @@
+name: mydite
+setup:
+  - python39
+  - gcc
+install:
+  - python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt
+start:
+  - gunicorn mysite.wsgi:application --bind 0.0.0.0:$PORT

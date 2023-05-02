@@ -120,28 +120,33 @@ table, th, td {
                 </tr>
             </thead>
             <tbody>
-                {% for application in custom_attribute %}
-                    <tr>
-                        <td>{{ application.First_and_Last_Name }}</td>
-                        <td>{{ application.Discussion_Time_1 }}</td>
-                        <td>{{ application.Discussion_Time_2 }}</td>
-                        <th>
-                          <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="accept">
-                            {% csrf_token %}
-                            <input type="hidden" name="status" value="accept">
-                            <button class="accept-button" type="submit" onclick="sendRequest(this)">Accept</button>
-                          </form>
-                        </th>
-                        <th>
-                          <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="reject">
-                            {% csrf_token %}
-                            <input type="hidden" name="status" value="reject">
-                            <button class="reject-button" type="submit" onclick="sendRequest(this)">Reject</button>
-                          </form>
-                        </th>
-                        
-                    </tr>
-                {% endfor %}
+              {% for application in custom_attribute %}
+                <tr>
+                  <td>{{ application.First_and_Last_Name }}</td>
+                  <td>{{ application.Discussion_Time_1 }}</td>
+                  <td>{{ application.Discussion_Time_2 }}</td>
+                  {% if application.Application_Status == "Accepted_by_both" %}
+                    <td>Accepted</td>
+                    <td></td>
+                  {% else %}
+                    <td>
+                      <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="accept">
+                        {% csrf_token %}
+                        <input type="hidden" name="status" value="accept">
+                        <button class="accept-button" type="submit" onclick="sendRequest(this)">Accept</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form action="{% url 'update_application_status' application.Username application.Course_Name %}" method="POST" status="reject">
+                        {% csrf_token %}
+                        <input type="hidden" name="status" value="reject">
+                        <button class="reject-button" type="submit" onclick="sendRequest(this)">Reject</button>
+                      </form>
+                    </td>
+                  {% endif %}
+                </tr>
+              {% endfor %}
+            </tbody>
             </tbody>
         </table>
     </div>

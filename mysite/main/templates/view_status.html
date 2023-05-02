@@ -50,8 +50,55 @@ table, th, td {
     text-align: center;
     padding: 2px;
 }  
+.accept-button {
+  font-family: Times New Roman; 
+  background-color: green; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  text-align: center;
+}
+.reject-button {
+  font-family: Times New Roman; 
+  background-color: red; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  text-align: center;
+}
 
-  </style>
+</style>
+
+<script>
+  function sendRequest(button) {
+    if (button.status == "accept") {
+      button.innerHTML = "Accepted";
+    } else if (button.status == "reject") {
+      button.innerHTML = "Rejected";
+    }
+    button.disabled = true;
+    button.style.backgroundColor = "#CCCCCC"; // change color to grey
+  
+    alert("Request sent successfully!")
+  }
+</script>
+
 <head>
     <title>Welcome</title>
 </head>
@@ -71,10 +118,34 @@ table, th, td {
   <br>
   <h1 style="text-align: center;">Application Status for {{ custom_attribute.course }}</h1>
   <br>
-  <div style="text-align: center;background-color: #f2f2f2; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
-    {{ custom_attribute.application_status }}
-  </div>
-    <br><br>
+
+  {% if custom_attribute.application_status != "Accepted" %}
+      <div style="text-align: center;background-color: #f2f2f2; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+        {{ custom_attribute.application_status }}
+      </div>
+  {% endif %}
+
+
+  {% if custom_attribute.application_status == "Accepted" %}
+      <div style="text-align: center;background-color: #f2f2f2; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+          {{ custom_attribute.application_status }}
+
+          <form action="{% url 'update_hire_status' current_user_id custom_attribute.course  %}" method="POST" status="accept">
+            {% csrf_token %}
+            <input type="hidden" name="status" value="accept">
+            <button class="accept-button" type="submit" onclick="sendRequest(this)" status="accept">Accept</button>
+          </form>
+          
+          <form action="{% url 'update_hire_status' current_user_id custom_attribute.course %}" method="POST" status="reject">
+            {% csrf_token %}
+            <input type="hidden" name="status" value="reject">
+            <button class="reject-button" type="submit" onclick="sendRequest(this)" status="reject">Reject</button>
+          </form>
+      </div>
+  {% endif %}
+  <br>
+  
+
 </body>
 
 </html>

@@ -55,4 +55,5 @@ urlpatterns = [
     path('update_status_field/<int:course_id>/', course_views.update_status_field, name='update_status_field'),
     path('update_application_status/<str:username>/<str:course_name>/', course_app_views.update_application_status, name='update_application_status'),
     path('view_status/<str:course_name>/<str:student_username>/<str:application_status>/', status_views.view_status, name='view_status'),
+    path('update_hire_status/<str:username>/<str:course_name>/', status_views.update_hire_status, name='update_hire_status'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

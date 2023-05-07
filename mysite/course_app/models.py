@@ -14,5 +14,5 @@ class courseApplicationAllRequired(models.Model):
     Username = models.CharField(max_length=100, editable=False)
     Resume = models.FileField(upload_to='course_app/resumes/', blank=False)
     Anything_you_want_to_add  = models.CharField(max_length=500, blank=True, default='')
-    Application_Status = models.CharField(max_length=100, editable=False, default=' ')
+    Application_Status = models.CharField(max_length=100, editable=False, default='')
 

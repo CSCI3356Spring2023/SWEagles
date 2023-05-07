@@ -89,6 +89,9 @@ table, th, td {
                         
                         
                     </tr>
+                    {% if application.Application_Status == 'Accepted_by_both' %}
+                      You are hired! All other applications have been closed.
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>

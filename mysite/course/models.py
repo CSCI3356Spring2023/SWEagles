@@ -23,6 +23,7 @@ class AddCourseModel(models.Model):
     Course_Name = models.CharField(max_length=100, blank=True)
     Course_ID = models.CharField(max_length=100, blank=True)
     Section = models.PositiveIntegerField(blank=True, null=True)
+    
 
     Marking_Meetings = models.CharField(choices=YES_NO, max_length=15, blank= True)
 

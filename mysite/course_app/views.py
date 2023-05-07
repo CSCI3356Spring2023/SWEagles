@@ -17,6 +17,8 @@ def course_app_view(response, course_id, current_user_id):
 
     Course_Name = data.Course_Name
     Course_Section = data.Section
+
+    Username= response.user.username
     form = courseForm1()
     if response.POST:
         form = courseForm1(response.POST, response.FILES)
@@ -26,6 +28,7 @@ def course_app_view(response, course_id, current_user_id):
             application.Course_Name = Course_Name
             application.Section = Course_Section
             application.Application_Status = "Pending"
+            application.Username = Username
             student.app_counter+=1
             application.save()
             student.save()
@@ -37,6 +40,7 @@ def course_app_view(response, course_id, current_user_id):
     context = {
         'student' : student,
         'course' : data,
+        'Username' : Username,
         'form' : form
     }
 

@@ -7,39 +7,64 @@
 <html>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
 
+h1{
+margin: 5px;
+  padding: 2.5px;
+  font-family: 'Lato';
+  font-size: 3em;
+  padding: 10px 0;
+  font-weight: 800;
+}
 
   .main-container{
-      font-family: Times New Roman; 
+      font-family: 'Lato'; 
       content: center;
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
       text-align: center;
       padding-top: 120px;
   }
-
   .login-button {
-      font-family: Times New Roman; 
-      background-color: #BC9B6A; 
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
-      border: 2px solid #fff;
-      text-align: center;
-	  
-
+    font-family: Lato; 
+    background-color: #BC9B6A; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    text-align: center;
+    outline: #800000;
+    margin-bottom: 1px;
   }
+
+  button {
+			background-color: #BC9B6A;
+			border: none;
+			color: #FFFFFF;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 10px;
+			cursor: pointer;
+			border-radius: 5px;
+			box-shadow: 2px 2px #CCCCCC;
+			transition: background-color 0.3s ease-in-out;
+		}
+
   .banner {
-    height: 15vh;
+    height: 20vh;
     width: 100%;
-    font-family: Times New Roman; 
+    font-family: 'Lato'; 
     background-color: #800000;
     margin: 0 auto;
     color: white;
@@ -54,10 +79,27 @@
   .sub-banner {
     font-size: 10px;
 }
+.form-label {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: top;
+}
+
+.title{
+  font-size: 3em;
+  font-weight: 100;
+  letter-spacing: 5px;
+  margin: 5px;
+  padding: 2.5px;
+  font-family: 'Lato';
+}
+
 </style >
 
   <head>
-    <title>Create a Course</title>
+    <title class="title">Create a Course</title>
   </head>
   <body>
     
@@ -69,14 +111,15 @@
     </div>
     <div class = "main-container">
       <br>
+      <br>
       <form method="POST" class="form-group">
-        <button type="submit"><a href="{{ currentUrl}}/instructor_landing_page">Home</button></a>
+        <button class="login-button"><a href="{{ currentUrl}}/instructor_landing_page">Home</button></a>
     <br>
       <h4>Create a Course</h4>
         <form method="POST">
           {% csrf_token %}
         {{ form.as_p }}
-          <input class="login-button" type='submit', value='Save'/>
+          <input class="form-label" type='submit', value='Save'/>
         </form>
     </div>
   </body>

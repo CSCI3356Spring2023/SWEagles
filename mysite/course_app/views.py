@@ -78,5 +78,7 @@ def update_application_status_reject(request, username, course_name):
     send_email(student.email, subject, message)
     application_list_1 =  courseApplicationAllRequired.objects.all()
     application_list_1 = application_list_1.filter(Course_Name=course_name)
+    student.app_counter-=1
+    student.save()
 
     return render(request, 'view_applications.html', {'custom_attribute': application_list_1})

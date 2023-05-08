@@ -120,6 +120,8 @@ table, th, td {
                     <th>Student Name</th>
                     <th> Preferred Discussion time 1 </th>
                     <th> Preferred Discussion time 2 </th>
+                    <th> Resume </th>
+                    <th> Extra Info </th>
                     <th> Status </th>
                 </tr>
             </thead>
@@ -130,6 +132,8 @@ table, th, td {
                   <td>{{ application.First_and_Last_Name }}</td>
                   <td>{{ application.Discussion_Time_1 }}</td>
                   <td>{{ application.Discussion_Time_2 }}</td>
+                  <td><a href="{{ application.Resume.url }}">Open</a></td>
+                  <td>{{ application.Anything_you_want_to_add }}</td>
                   {% if application.Application_Status == "Accepted_by_both" %}
                     <td>Accepted</td>
                   {% elif application.Application_Status == "Rejected" %}

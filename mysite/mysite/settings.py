@@ -178,3 +178,6 @@ ALLOWED_FILTERS = {
         'crispy_forms.templatetags.crispy_forms_filters.*',
     ],
 }
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'course_app', 'resumes')
+MEDIA_URL = '/course_app/resumes/'

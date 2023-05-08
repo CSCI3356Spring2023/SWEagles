@@ -59,3 +59,6 @@ urlpatterns = [
     path('update_hire_status_accepted/<str:username>/<str:course_name>/', status_views.update_hire_status_accepted, name='update_hire_status_accepted'),
     path('update_hire_status_rejected/<str:username>/<str:course_name>/', status_views.update_hire_status_rejected, name='update_hire_status_rejected'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
